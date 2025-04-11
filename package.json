@@ -1,0 +1,15 @@
+{
+  "name": "wod-generator-fullstack",
+  "version": "1.0.0",
+  "description": "Fullstack WOD Generator with Vue frontend and Node/Express backend",
+  "main": "backend/index.js",
+  "scripts": {
+    "install": "cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && node index.js"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "license": "MIT"
+}

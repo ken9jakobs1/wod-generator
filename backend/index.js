@@ -33,6 +33,11 @@ mongoose
     console.error('🔴 MongoDB connection error:', err)
   })
 
+// ➕ Tilføjet root route
+app.get('/', (req, res) => {
+  res.send('WOD Generator API is running ✅')
+})
+
 // GET workouts
 app.get('/api/workouts', async (req, res) => {
   try {
@@ -43,7 +48,7 @@ app.get('/api/workouts', async (req, res) => {
   }
 })
 
-// POST workouts (valgfri – hvis du vil indsætte manuelt)
+// POST workouts
 app.post('/api/workouts', async (req, res) => {
   try {
     const newWorkout = new Workout(req.body)
@@ -54,10 +59,10 @@ app.post('/api/workouts', async (req, res) => {
   }
 })
 
-// Midlertidig seed-route
+// Seed route
 app.post('/api/workouts/seed', async (req, res) => {
   try {
-    await Workout.deleteMany({}) // ryd databasen først
+    await Workout.deleteMany({}) // ryd databasen
 
     const seedWorkouts = [
       {
